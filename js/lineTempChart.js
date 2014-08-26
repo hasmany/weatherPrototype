@@ -1,4 +1,4 @@
-function LINECHARTNAMESPACE(){
+var lineChartTempModule = (function (){
 
   // private variables
   var timeArray = [];
@@ -106,7 +106,7 @@ function LINECHARTNAMESPACE(){
       return lineTempChartConfig;
     }
   };
-}
+})();
 
 
 

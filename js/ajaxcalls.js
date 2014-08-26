@@ -3,8 +3,7 @@
   $.ajax(url,{
     success: function(data) {
     window.data = data;
-    var lineChartConfigParser = LINECHARTNAMESPACE();
-    var chart = new Highcharts.Chart(lineChartConfigParser.setChartTempOptions(data,unit));
+    var chart = new Highcharts.Chart(lineChartTempModule.setChartTempOptions(data,unit));
     }
   });
 }
