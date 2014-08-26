@@ -85,3 +85,7 @@ nav a:hover{
 .nav1 input{background:#2DA5DA;}
 .nav1 button{background: rgba(45,168,218,.8);}
 
+input[type="radio"] {
+  margin-left: 17px;
+  margin-top: 7px;
+}
