@@ -1,5 +1,5 @@
 $(document).ready(function() {
-   $("button").on("click",function() {
+   $("#tempbutton").on("click",function() {
       var location = $("#location").val();
       var days = $("#amount").val();
       var unit = "";
@@ -7,7 +7,18 @@ $(document).ready(function() {
         unit = "Fahrenheit";
       }
      console.log("click event triggered!");
-     ajaxCall(location,days,unit);
+     ajaxCallTemp(location,days,unit);
+   });
+
+   $("#humiditybutton").on("click",function() {
+      var location = $("#location").val();
+      var days = $("#amount").val();
+      var unit = "";
+      if($("input[value='Fahrenheit']").is(':checked')) {
+        unit = "Fahrenheit";
+      }
+     console.log("click event triggered!");
+     ajaxCallHumidity(location,days,unit);
    });
 });
 

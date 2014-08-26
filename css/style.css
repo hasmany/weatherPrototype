@@ -89,3 +89,7 @@ input[type="radio"] {
   margin-left: 17px;
   margin-top: 7px;
 }
+
+#form {
+  margin-top: 40px;
+}
