@@ -56,14 +56,16 @@ function LINECHARTNAMESPACE(){
       for (var i = 0, x = data.list.length; i < x; i++) {
         timeArray.push(data.list[i].dt);
       }
+      return this.timeConvert(timeArray);
     },
     time: function(data) {
-      var date = new Date([time] * 1000);
+      var date = new Date([data] * 1000);
+      console.log(date)
       return date.toDateString();
     },
     timeConvert: function(timeArray){
       for(var i = 0, x = timeArray.length; i < x; i++) {
-        var result = time(timeArray[i]);
+        var result = this.time(timeArray[i]);
         convertedTime.push(result.slice(4,10));
       }
       return convertedTime;
