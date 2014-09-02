@@ -58,6 +58,12 @@ var compareChartTempModule = (function (){
       return maxTempArray;
   };
 
+  var extend = function(target,source) {
+    for (var key in source) {
+      target[key] = source[key];
+    }
+  }
+
   // BasicChartConfiguration
   // Passed to HighCharts object to set parameters
   var lineTempChartConfig = {
@@ -104,6 +110,17 @@ var compareChartTempModule = (function (){
         lineTempChartConfig.series[0].data = parseDayTemp(data);
       }
       return lineTempChartConfig;
+    },
+
+    updateChartTempOptions: function(options,data) {
+      //options is chart options
+      //data is the data to be parsed
+      var additonalOptions = {
+        lineTempChartConfig.title.text: lineTempChartConfig.title.text + " versus " + data.city.name.toUpperCase(),
+        lineTempChartConfig.series[1].data = parseDayTemp(data)
+      }
+      var chartOpnewData = extend(lineTempChartConfig,additionalOptions);
+      return chartOpnewData;
     }
   };
 })();
