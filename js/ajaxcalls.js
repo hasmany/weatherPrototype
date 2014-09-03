@@ -5,7 +5,7 @@ var ajaxModule = (function() {
       var url = "http://api.openweathermap.org/data/2.5/forecast/daily?q="+location+"&mode=json&units=imperial&cnt="+ days;
       $.ajax(url,{
         success: function(data) {
-        window.data = data;
+        window.data1 = data;
         var chart = new Highcharts.Chart(lineChartTempModule.setChartTempOptions(data,unit));
         }
       });
@@ -15,7 +15,7 @@ var ajaxModule = (function() {
       var url = "http://api.openweathermap.org/data/2.5/forecast/daily?q="+location+"&mode=json&units=imperial&cnt="+ days;
       $.ajax(url,{
         success: function(data) {
-        window.data = data;
+        window.data2 = data;
         var chart = new Highcharts.Chart(combochartHumidModule.setChartTempOptions(data,unit));
         }
       });
@@ -25,7 +25,8 @@ var ajaxModule = (function() {
       var url = "http://api.openweathermap.org/data/2.5/forecast/daily?q="+location+"&mode=json&units=imperial&cnt="+ days;
       $.ajax(url,{
         success: function(data) {
-          window.data1 = data;
+          console.log(location);
+          window.data3 = data; // json object is available here
           console.log("comparison1");
         }
       });
@@ -35,7 +36,14 @@ var ajaxModule = (function() {
       var url = "http://api.openweathermap.org/data/2.5/forecast/daily?q="+location+"&mode=json&units=imperial&cnt="+ days;
       $.ajax(url,{
         success: function(data) {
-          window.data2 = data;
+          window.data4 = data;
+          console.log(location);
+           // setTimeout(function(){console.log(data3)},2000);
+          //compareChartTempModule.setChartTempOptions(data3,unit) //  return chart config object
+          console.log(data3)
+          var options = compareChartTempModule.setChartTempOptions(data3,unit)
+          var upgradedOptions = compareChartTempModule.updateChartTempOptions(options,data4)
+          console.log(upgradedOptions)
           console.log("comparison2");
         }
       });

@@ -62,7 +62,8 @@ var compareChartTempModule = (function (){
     for (var key in source) {
       target[key] = source[key];
     }
-  }
+    return target;
+  };
 
   // BasicChartConfiguration
   // Passed to HighCharts object to set parameters
@@ -116,10 +117,13 @@ var compareChartTempModule = (function (){
       //options is chart options
       //data is the data to be parsed
       var additonalOptions = {
-        lineTempChartConfig.title.text: lineTempChartConfig.title.text + " versus " + data.city.name.toUpperCase(),
-        lineTempChartConfig.series[1].data = parseDayTemp(data)
-      }
-      var chartOpnewData = extend(lineTempChartConfig,additionalOptions);
+        title : {text: lineTempChartConfig.title.text + " versus " + data.city.name.toUpperCase()},
+        // follow the above format!
+        series : lineTempChartConfig.series
+        //lineTempChartConfig.series[1].data: parseDayTemp(data)
+      };
+      additonalOptions.series[1] = {name: 'temperature', data: parseDayTemp(data)};
+      var chartOpnewData = extend(lineTempChartConfig,additonalOptions);
       return chartOpnewData;
     }
   };

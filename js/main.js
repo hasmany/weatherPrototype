@@ -26,15 +26,19 @@ $(document).ready(function() {
      var location2 = $("#location2").val();
      var days = $("#amount").val();
      var check = location && location2;
+     var unit = "";
      if (!check) {
-       alert("Please type in two cities to compare")
+       alert("Please type in two cities to compare");
      }
      else {
       ajaxModule.ajaxCompare1(location,days,unit);
       ajaxModule.ajaxCompare2(location2,days,unit);
       alert("two cities nice!");
+
+     //setTimeout(compareChartTempModule.setChartTempOptions(data3,unit),3000);
+
      }
-     var unit = "";
+
 
      // need to make 2 ajax calls
      // each one will make adjusments to the
