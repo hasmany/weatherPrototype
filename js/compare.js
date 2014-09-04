@@ -96,6 +96,7 @@ var compareChartTempModule = (function (){
 
   return {
     setChartTempOptions: function(data,unit) {
+      console.log(data);
       lineTempChartConfig.title.text = data.city.name.toUpperCase();
       lineTempChartConfig.xAxis.categories = parseTime(data);
       lineTempChartConfig.yAxis.title.text = "Temperature";
@@ -116,13 +117,16 @@ var compareChartTempModule = (function (){
     updateChartTempOptions: function(options,data) {
       //options is chart options
       //data is the data to be parsed
+      console.log(data);
       var additonalOptions = {
         title : {text: lineTempChartConfig.title.text + " versus " + data.city.name.toUpperCase()},
         // follow the above format!
         series : lineTempChartConfig.series
         //lineTempChartConfig.series[1].data: parseDayTemp(data)
       };
+      console.log(additonalOptions);
       additonalOptions.series[1] = {name: 'temperature', data: parseDayTemp(data)};
+      console.log(additonalOptions);
       var chartOpnewData = extend(lineTempChartConfig,additonalOptions);
       return chartOpnewData;
     }

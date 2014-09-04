@@ -37,11 +37,12 @@ var ajaxModule = (function() {
       $.ajax(url,{
         success: function(data) {
           window.data4 = data;
-          console.log(location);
+
            // setTimeout(function(){console.log(data3)},2000);
           //compareChartTempModule.setChartTempOptions(data3,unit) //  return chart config object
-          console.log(data3)
+
           var options = compareChartTempModule.setChartTempOptions(data3,unit)
+          console.log(options);
           var upgradedOptions = compareChartTempModule.updateChartTempOptions(options,data4)
           console.log(upgradedOptions)
           console.log("comparison2");
