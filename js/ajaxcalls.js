@@ -25,7 +25,7 @@ var ajaxModule = (function() {
       var url = "http://api.openweathermap.org/data/2.5/forecast/daily?q="+location+"&mode=json&units=imperial&cnt="+ days;
       $.ajax(url,{
         success: function(data) {
-          console.log(location);
+
           window.data3 = data; // json object is available here
           console.log("comparison1");
         }
@@ -35,15 +35,15 @@ var ajaxModule = (function() {
     ajaxCompare2:function(location,days,unit) {
       var url = "http://api.openweathermap.org/data/2.5/forecast/daily?q="+location+"&mode=json&units=imperial&cnt="+ days;
       $.ajax(url,{
-        success: function(data) {
-          window.data4 = data;
+        success: function(testin123) {
 
+          console.log("comparison2");
            // setTimeout(function(){console.log(data3)},2000);
           //compareChartTempModule.setChartTempOptions(data3,unit) //  return chart config object
 
           var options = compareChartTempModule.setChartTempOptions(data3,unit)
           console.log(options);
-          var upgradedOptions = compareChartTempModule.updateChartTempOptions(options,data4)
+          var upgradedOptions = compareChartTempModule.updateChartTempOptions(options,testin123)
           console.log(upgradedOptions)
           console.log("comparison2");
         }

@@ -111,9 +111,12 @@ var compareChartTempModule = (function (){
       else {
         lineTempChartConfig.series[0].data = parseDayTemp(data);
       }
+      console.log(lineTempChartConfig); // where is extra data coming from? comparison // issue private variables?
       return lineTempChartConfig;
     },
-
+    getOptions: function() {
+      return lineTempChartConfig;
+    },
     updateChartTempOptions: function(options,data) {
       //options is chart options
       //data is the data to be parsed
